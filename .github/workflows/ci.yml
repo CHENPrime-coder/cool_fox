@@ -4,7 +4,13 @@ on:
   pull_request:
   push:
     branches: [main]
-
+  workflow_dispatch: # 必须包含这一行才能手动触发
+    inputs:          # （可选）如果你需要在触发时填写参数
+      environment:
+        description: '运行环境'
+        required: true
+        default: 'staging'
+        
 permissions:
   contents: read
 
